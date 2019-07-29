@@ -1,4 +1,4 @@
-Available metrics:
+#### Available metrics:
 
 ```
 http://localhost:8080/actuator/metrics
@@ -26,8 +26,6 @@ docker network create monitoring
 
 #### Start prometheus:
 
-TODO: store data!
-
 ```bash
 docker container run -d -p 9090:9090 \
     -v $(pwd)/prometheus/data:/prometheus \
@@ -51,6 +49,7 @@ http_server_requests_seconds_count{uri="/customers"}
 
 #### Start grafana
 
+```bash
 docker container run -d -p 3000:3000 \
     -v $(pwd)/grafana/data/:/var/lib/grafana \
     -v $(pwd)/grafana/provisioning/:/etc/grafana/provisioning/ \
@@ -59,7 +58,7 @@ docker container run -d -p 3000:3000 \
     --name grafana \
     --net monitoring \
     grafana/grafana:5.4.3
-
+```
 
 Login to grafana with:
 
