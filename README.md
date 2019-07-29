@@ -30,6 +30,7 @@ TODO: store data!
 
 ```bash
 docker container run -d -p 9090:9090 \
+    -v $(pwd)/prometheus/data:/prometheus \
     -v $(pwd)/prometheus/:/etc/prometheus/ \
     --name prometheus \
     --net monitoring \
@@ -51,6 +52,7 @@ http_server_requests_seconds_count{uri="/customers"}
 #### Start grafana
 
 docker container run -d -p 3000:3000 \
+    -v $(pwd)/grafana/data/:/var/lib/grafana \
     -v $(pwd)/grafana/provisioning/:/etc/grafana/provisioning/ \
     -e "GF_SECURITY_ADMIN_PASSWORD=Welcome1_" \
     -e "GF_USERS_ALLOW_SIGN_UP=false" \
@@ -66,3 +68,11 @@ Login to grafana with:
 Populare dashboards:
 
 https://grafana.com/grafana/dashboards/4701
+https://grafana.com/grafana/dashboards/10280
+https://grafana.com/grafana/dashboards/9845
+
+
+
+Resources:
+
+1. https://github.com/stefanprodan/dockprom

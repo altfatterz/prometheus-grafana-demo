@@ -9,7 +9,8 @@ scrape_configs:
   metrics_path: '/actuator/prometheus'
 
   # scheme defaults to 'http'
+  # hard coded targets with ip, how to parameterize this?
   static_configs:
-  - targets: ['192.168.0.159:8080']
+  - targets: ['10.44.66.112:8080']
     labels:
       application: 'prometheus-grafana-demo'
